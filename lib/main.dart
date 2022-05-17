@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:guncehub_mobile_app/core/notifier/provider_list.dart';
+import 'package:provider/provider.dart';
+
+import 'core/notifier/theme_notifier.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [...ApplicationProvider.instance.dependItems],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,10 +18,8 @@ class MyApp extends StatelessWidget {
     String title = "Welcome to GünceHUB";
 
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: context.watch<ThemeNotifier>().currentTheme,
       home: Scaffold(
         body: Center(
           child: Text(
