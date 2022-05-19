@@ -18,7 +18,9 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GunceHubImage(assetName: ImageConstants.instance.logo),
+            GunceHubImage(
+              assetName: ImageConstants.instance.logo,
+            ),
             Text(
               LocaleKeys.splash_welcome.locale,
               style: const TextStyle(fontSize: 30),
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () =>
-                    context.router.pushNamed(NavigationConstants.TEST_SCREEN),
+                    context.router.pushNamed(NavigationConstants.testScreen),
                 child: const Text(buttonText)),
           ],
         ),
